@@ -18,12 +18,12 @@
                 <el-button size="small" @click="readBook(scope.row)">see</el-button>
                 <el-popconfirm title="confirm to edit the book?" @confirm="openEditDialog(scope.row)">
                     <template #reference>
-                        <el-button size="small" type="danger" v-if="data.userType == '管理员'">edit</el-button>
+                        <el-button size="small" type="danger">edit</el-button>
                     </template>
                 </el-popconfirm>
                 <el-popconfirm title="confirm to delete the book?" @confirm="handleDelete(scope.row)">
                     <template #reference>
-                        <el-button size="small" type="danger" v-if="data.userType == '管理员'">delete</el-button>
+                        <el-button size="small" type="danger">delete</el-button>
                     </template>
                 </el-popconfirm>
             </template>
@@ -35,6 +35,7 @@
 
     <el-dialog v-model="data.addDialogVisible" title="add book" width="30%">
         <el-input v-model="data.book.title" placeholder="title" maxlength="50" style="margin-bottom: 20px;" />
+        <el-input v-model="data.book.author" placeholder="author" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.bookNum" placeholder="ISBN" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.publishTime" placeholder="publish Time" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.desc" placeholder="desc" :rows="10" type="textarea" maxlength="500" :resize="none" />
@@ -116,7 +117,7 @@ export default {
 
         function openAddDialog() {
             data.book.title = "";
-            data.book.publishTIme = "";
+            data.book.publishTime = "";
             data.book.author = "";
             data.book.desc ="";
             data.book.bookNum = "";
