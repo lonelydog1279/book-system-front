@@ -22,7 +22,7 @@ spec:
           name: book-front
         env: 
         - name: VITE_AXIOS_BASE_URL
-          value: "http://demo:80/"
+          value: "http://4.191.74.246/"
         resources:
           requests:
             cpu: 1m
