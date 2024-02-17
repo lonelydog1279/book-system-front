@@ -89,7 +89,7 @@ export default {
             initData();
         });
         function initData() {
-            getRequest("/book/listAll").then((res) => {
+            getRequest("/book/list").then((res) => {
                 if (res.data.code == 0) {
                     data.bookList = res.data;
                     data.showBookList = res.data;
