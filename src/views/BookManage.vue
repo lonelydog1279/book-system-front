@@ -7,8 +7,8 @@
         <el-table-column prop="id" label="id" />
         <el-table-column prop="title" label="title" width="240" />
         <el-table-column prop="author" label="author" width="240" />
-        <el-table-column prop="bookNum" label="ISBN" />
-        <el-table-column prop="publishTime" label="publish time" />
+        <el-table-column prop="ISBN" label="bookNum" />
+        <el-table-column prop="publish time" label="publishTime" />
         <el-table-column label="desc" width="300">
             <template #default="scope">
                 <span class="bookBriefIntroduction">{{scope.row.bookBriefIntroduction}}</span>
