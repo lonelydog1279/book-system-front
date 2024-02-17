@@ -51,6 +51,7 @@
         <el-input v-model="data.book.title" placeholder="title" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.bookNum" placeholder="ISBN" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.publishTime" placeholder="publish Time" maxlength="50" style="margin-bottom: 20px;" />
+        <el-input v-model="data.book.bookNum" placeholder="bookNum" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.desc" placeholder="desc" :rows="10" type="textarea" maxlength="500" :resize="none" />
         <template #footer>
             <span class="dialog-footer">
@@ -76,7 +77,7 @@ export default {
             bookList: [],
             showBookList: [],
             book: {
-                bookId: "",
+                id: "",
                 title: "",
                 author: "",
                 publishTime: "",
@@ -104,7 +105,7 @@ export default {
         }
         function handleDelete(row) {
             deleteRequest("/book/delete", {
-                bookId: row.bookId
+                id: row.id
             }).then((res) => {
                 if (res.data.code == 0) {
                     message(res.data.message, "success");
