@@ -21,7 +21,7 @@ const routes = [
                 component: BookManage,
             },
             {
-                path: '/book',
+                path: '/bookDetail',
                 name: 'Book',
                 component: Book,
             }
