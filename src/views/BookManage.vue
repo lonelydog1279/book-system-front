@@ -6,6 +6,7 @@
         :header-cell-style="{'text-align':'center'}" :cell-style="{'text-align':'center'}">
         <el-table-column prop="id" label="id" />
         <el-table-column prop="title" label="title" width="240" />
+        <el-table-column prop="author" label="author" width="240" />
         <el-table-column prop="bookNum" label="ISBN" />
         <el-table-column prop="publishTime" label="publish time" />
         <el-table-column label="desc" width="300">
@@ -49,7 +50,7 @@
 
     <el-dialog v-model="data.editDialogVisible" title="edit book info" width="30%">
         <el-input v-model="data.book.title" placeholder="title" maxlength="50" style="margin-bottom: 20px;" />
-        <el-input v-model="data.book.bookNum" placeholder="ISBN" maxlength="50" style="margin-bottom: 20px;" />
+        <el-input v-model="data.book.author" placeholder="author" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.publishTime" placeholder="publish Time" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.bookNum" placeholder="bookNum" maxlength="50" style="margin-bottom: 20px;" />
         <el-input v-model="data.book.desc" placeholder="desc" :rows="10" type="textarea" maxlength="500" :resize="none" />
