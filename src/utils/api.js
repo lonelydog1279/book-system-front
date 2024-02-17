@@ -2,7 +2,7 @@ import axios from "axios";
 import { ElMessage } from 'element-plus';
 
 axios.defaults.baseURL = (import.meta.env.VITE_AXIOS_BASE_URL);
-
+console.log(axios.defaults.baseURL)
 export function message(msg, type) {
     ElMessage({
         message: msg,
