@@ -31,7 +31,7 @@ ARG APP_VERSION=0.1.0
 ENV APP_VERSION=$APP_VERSION
 
 # Copy the nginx configuration template to the container
-# COPY nginx.conf /etc/nginx/conf.d/nginx.conf.template
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf.template
 
 # Start the app
 CMD ["sh", "-c", "envsubst '${APP_VERSION}' < /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
