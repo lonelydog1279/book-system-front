@@ -13,7 +13,7 @@
                 <span class="bookBriefIntroduction">{{scope.row.bookBriefIntroduction}}</span>
             </template>
         </el-table-column>
-        <el-table-column label="操作" width="240">
+        <el-table-column label="operation" width="240">
             <template #default="scope">
                 <el-button size="small" @click="readBook(scope.row)">see</el-button>
                 <el-popconfirm title="confirm to edit the book?" @confirm="openEditDialog(scope.row)">
@@ -76,9 +76,11 @@ export default {
             showBookList: [],
             book: {
                 bookId: "",
-                bookName: "",
-                bookType: "",
-                bookBriefIntroduction: "",
+                title: "",
+                author: "",
+                publishTime: "",
+                bookNum:"",
+                desc: ""
             },
             total: 100,
             current: 1,
@@ -92,8 +94,8 @@ export default {
             getRequest("/book/list").then((res) => {
                 console.log(res)
                 if (res.data.code == 0) {
-                    data.bookList = res.data;
-                    data.showBookList = res.data;
+                    data.bookList = res.data.data;
+                    data.showBookList = res.data.data;
                 } else if (res.data.code == 500) {
                     message(res.data.msg, "error");
                 }
@@ -104,10 +106,10 @@ export default {
                 bookId: row.bookId
             }).then((res) => {
                 if (res.data.code == 0) {
-                    message(res.data.msg, "success");
+                    message(res.data.message, "success");
                     initData();
                 } else if (res.data.code == 500) {
-                    message(res.data.msg, "error");
+                    message(res.data.message, "error");
                 }
             });
         }
@@ -126,15 +128,14 @@ export default {
                 author: data.book.author,
                 publishTime: data.book.publishTime,
                 desc: data.book.desc,
-                bookNum: data.book.bookNum,
-                bookBriefIntroduction: data.book.bookBriefIntroduction,
+                bookNum: data.book.bookNum
             }).then((res) => {
                 if (res.data.code == 0) {
-                    message(res.data.msg, "success");
+                    message(res.data.message, "success");
                     initData();
                     data.addDialogVisible = false;
                 } else if (res.data.code == 500) {
-                    message(res.data.msg, "error");
+                    message(res.data.message, "error");
                 }
             });
         }
@@ -156,11 +157,11 @@ export default {
                 desc: data.book.desc
             }).then((res) => {
                 if (res.data.code == 0) {
-                    message(res.data.msg, "success");
+                    message(res.data.message, "success");
                     initData();
                     data.editDialogVisible = false;
                 } else if (res.data.code == 500) {
-                    message(res.data.msg, "error");
+                    message(res.data.message, "error");
                 }
             });
         }
@@ -173,7 +174,7 @@ export default {
                     bookId: row.bookId,
                     bookName: row.bookName,
                     bookType: row.bookType,
-                    bookBriefIntroduction: row.bookBriefIntroduction
+                    desc: row.desc
                 }
             })
         }
