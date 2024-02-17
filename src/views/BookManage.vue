@@ -11,12 +11,12 @@
         <el-table-column prop="publishTime" label="publish time" />
         <el-table-column prop="desc" label="desc" width="300">
             <template #default="scope">
-                <span class="bookBriefIntroduction">{{scope.row.bookBriefIntroduction}}</span>
+                <span class="bookBriefIntroduction">{{scope.row.desc}}</span>
             </template>
         </el-table-column>
         <el-table-column label="operation" width="240">
             <template #default="scope">
-                <el-button size="small" @click="readBook(scope.row)">see</el-button>
+                <el-button size="small" @click="readBook(scope.row)">read</el-button>
                 <el-popconfirm title="confirm to edit the book?" @confirm="openEditDialog(scope.row)">
                     <template #reference>
                         <el-button size="small" type="danger">edit</el-button>
@@ -148,6 +148,7 @@ export default {
             data.book.title = row.title;
             data.book.author = row.author;
             data.book.publishTime = row.publishTime,
+            data.book.bookNum = row.bookNum,
             data.book.desc = row.desc,
             data.editDialogVisible = true;
         }
@@ -157,6 +158,7 @@ export default {
                 title: data.book.title,
                 author: data.book.author,
                 publishTime: data.book.publishTime,
+                bookNum: data.book.bookNum,
                 desc: data.book.desc
             }).then((res) => {
                 if (res.data.code == 0) {
@@ -172,11 +174,13 @@ export default {
         const myRouter = useRouter();
         function readBook(row) {
             myRouter.push({
-                path: "/book",
+                path: "/bookDetail",
                 query: {
-                    bookId: row.bookId,
-                    bookName: row.bookName,
-                    bookType: row.bookType,
+                    id: row.id,
+                    title: row.title,
+                    author: row.author,
+                    bookNum: row.bookNum,
+                    publishTime: row.publishTime,
                     desc: row.desc
                 }
             })

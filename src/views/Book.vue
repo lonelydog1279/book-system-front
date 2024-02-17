@@ -1,12 +1,14 @@
 <template>
-    <h2>{{data.book.bookName}}</h2>
+    <h2>{{data.book.title}}</h2>
     <br />
     <h5>
-        <span style="margin-right: 30px;">{{data.book.bookId}}</span>
-        <span>{{data.book.bookType}}</span>
+        <span style="margin-right: 30px;">{{data.book.id}}</span>
+        <span>{{data.book.author}}</span>
+        <span>{{data.book.bookNum}}</span>
+        <span>{{data.book.publishTime}}</span>
     </h5>
     <br />
-    <h4 style="text-indent: 2em;">{{data.book.bookBriefIntroduction}}</h4>
+    <h4 style="text-indent: 2em;">{{data.book.desc}}</h4>
 </template>
 
 <script>
@@ -18,18 +20,22 @@ export default {
     setup() {
         const data = reactive({
             book: {
-                bookId: "",
-                bookName: "",
-                bookType: "",
-                bookBriefIntroduction: "",
+                id: "",
+                title: "",
+                author: "",
+                bookNum: "",
+                publishTime: "",
+                desc: "",
             }
         });
         const myRoute = useRoute();
         onBeforeMount(() => {
-            data.book.bookId = myRoute.query.bookId ? myRoute.query.bookId : "";
-            data.book.bookName = myRoute.query.bookName ? myRoute.query.bookName : "";
-            data.book.bookType = myRoute.query.bookType ? myRoute.query.bookType : "";
-            data.book.bookBriefIntroduction = myRoute.query.bookBriefIntroduction ? myRoute.query.bookBriefIntroduction : "";
+            data.book.id = myRoute.query.id ? myRoute.query.id : "";
+            data.book.title = myRoute.query.title ? myRoute.query.title : "";
+            data.book.author = myRoute.query.author ? myRoute.query.author : "";
+            data.book.desc = myRoute.query.desc ? myRoute.query.desc : "";
+            data.book.bookNum = myRoute.query.bookNum ? myRoute.query.bookNum : "";
+            data.book.publishTime = myRoute.query.publishTime ? myRoute.query.publishTime : "";
         });
         return { data };
     },
