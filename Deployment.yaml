@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: book-system-front
+  name: book-front
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: book-system-front
+      app: book-front
   template:
     metadata:
       labels:
-        app: book-system-front
+        app: book-front
     spec:
       nodeSelector:
         "kubernetes.io/os": linux
       containers:
-      - name: book-system-front
-        image: {{ACR_LOGINSERVER}}/book-system-front:v{{BUILD_NUMBER}}
+      - name: book-front
+        image: {{ACR_LOGINSERVER}}/book-front:v{{BUILD_NUMBER}}
         ports:
         - containerPort: 8080
-          name: book-system-front
+          name: book-front
         env: 
         - name: VITE_AXIOS_BASE_URL
           value: "http://demo:80/"
@@ -34,11 +34,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: book-system-front
+  name: book-front
 spec:
   ports:
   - port: 80
     targetPort: 8080
   selector:
-    app: book-system-front
+    app: book-front
   type: LoadBalancer
