@@ -1,9 +1,7 @@
 import axios from "axios";
 import { ElMessage } from 'element-plus';
 
-// axios.defaults.baseURL = (import.meta.env.VITE_AXIOS_BASE_URL);
-axios.defaults.baseURL = "http://localhost:8080/api"
-console.log(axios.defaults.baseURL)
+axios.defaults.baseURL = (import.meta.env.VITE_AXIOS_BASE_URL);
 
 export function message(msg, type) {
     ElMessage({
