@@ -1,8 +1,15 @@
-# Vue 3 + Vite
+1. frontend repo: https://github.com/lonelydog1279/book-system-front.git
+2. backend repo: https://github.com/lonelydog1279/demo.git
+3. how to run locally: 
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+   back:
+   run backend locally
+   front:
+   please ensure you have nodejs installed, and go to front end project, run 'npm install' and 'npm run dev'
 
-## Recommended IDE Setup
+4. how to view frontend that deploy in aks, please open http://4.144.56.161/ in your browser
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-# book-system-front
+5. introduction: frontend: vue + vite
+                 backend: springboot & mysql
+                 pipeline and deploy: jenkins , nodejs , docker, k8s
+                 service export: k8s svc

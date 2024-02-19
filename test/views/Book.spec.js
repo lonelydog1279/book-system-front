@@ -5,6 +5,5 @@ import { useRoute } from 'vue-router'
 
 describe('component Book.vue', () => {
   it('should Book render', () => {
-      
   })
 })
